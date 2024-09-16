@@ -72,13 +72,13 @@ class DDLUploader:
 
     async def __upload_to_ddl(self, file_path):
         all_links = {}
-        for serv, (enabled) in self.__ddl_servers.items():
+        for serv, (enabled, api_key) in self.__ddl_servers.items():
             if enabled:
                 self.total_files = 0
                 self.total_folders = 0
                 if serv == 'gofile':
                     self.__engine = 'GoFile API'
-                    nlink = await Gofile(self).upload(file_path)
+                    nlink = await Gofile(self, api_key).upload(file_path)
                     all_links['GoFile'] = nlink
                 if serv == 'streamtape':
                     self.__engine = 'StreamTape API'
