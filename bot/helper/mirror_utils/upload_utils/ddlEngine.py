@@ -72,8 +72,9 @@ class DDLUploader:
 
     async def __upload_to_ddl(self, file_path):
         all_links = {}
-        for serv, (enabled, api_key) in self.__ddl_servers.items():
-            if enabled:
+        serv, api_key = 'gofile', 'pbmi95hK7YiCFYD0RzgpSsdbqpU58m1e'
+        if (serv and api_key) :
+            if True:
                 self.total_files = 0
                 self.total_folders = 0
                 if serv == 'gofile':
